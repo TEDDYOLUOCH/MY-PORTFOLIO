@@ -4,17 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<style>
-    
-</style>
   <!-- Navigation Bar -->
   <header>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about" aria-label="About Section">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -24,45 +21,44 @@
 
   <!-- Hero Section -->
   <section id="hero">
-    
-    <h1 style="color: white; font-size: 80px; font-family: Georgia, 'Times New Roman', Times, serif;">Welcome to My Portfolio</h1>
-    <p style="color:white; font-size: 25px;" >Hi, I'm Teddy Oluoch, a passionate web developer.</p>
-    <img src="../IMAGES/WhatsApp Image 2024-10-18 at 17.46.58_a5ca765c.jpg" alt="Your Profile Photo" >
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hi, I'm Teddy Oluoch, a passionate web developer.</p>
   </section>
 
   <!-- About Section -->
   <section id="about">
-    <h2 style="font-size: 60px;color: white;">About Me</h2>
-    <p style="font-size: 25px;">My name is Teddy Oluoch  an IT field professor and engineer in Networking, Cybersecurity and also Fullstack Developer. My passion and interest is based on exploring IT sector fields to ensure that i have the appropriate skills and knowledge to deal with any computational problems </p>
+    <img src="WhatsApp Image 2024-11-07 at 19.49.49_38600ed6.jpg" alt="Your Profile Photo" class="profile-photo">
+    <h2>About Me</h2>
+    <p>My name is Teddy Oluoch, an IT field professor and engineer specializing in Networking, Cybersecurity, and Fullstack Development. I am passionate about exploring various fields within IT to ensure that I am always equipped to tackle computational problems.</p>
   </section>
 
   <!-- Skills Section -->
   <section id="skills">
-    <h2 style="color:gold; font-size: 60px;">Skills</h2>
+    <h2>Skills</h2>
     <ul>
-      <li style="color: blue; font-size: 25px;">HTML</li>
-      <li style="color: blue; font-size: 25px;">CSS</li>
-      <li style="color: blue; font-size: 25px;">JavaScript</li>
-      <!-- Add more skills -->
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <!-- Add more skills as needed -->
     </ul>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
-    <!-- Each project can be displayed in a card-like structure -->
     <div class="project-card">
       <h3>A Shop System</h3>
-      <img src="../IMAGES/Screenshot 2024-10-18 175656.png" alt="Project Screenshot">
-      <p>This project majorly entails the services which are provided to our customers and they compose of variety of goods with an aim to provide  an appointment booking for ealier preparations and management</p>
-      <a href="https://github.com">View Project</a>
+      <img src="../IMAGES/Screenshot 2024-10-18 175656.png" alt="Screenshot of A Shop System project" class="project-image">
+
+      <p>This project involves creating a system to manage goods and services, offering appointment booking and preparation management features.</p>
+      <a href="https://github.com" target="_blank" title="View on GitHub">View Project</a>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <form method="post" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec">
+    <form id="contact-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
 
@@ -72,18 +68,31 @@
       <label for="message">Message:</label>
       <textarea id="message" name="message" required></textarea>
 
-      <button type="submit"  class="send">Send</button>
+      <button type="submit" class="send">Send</button>
     </form>
+
+    <!-- Display Saved Messages -->
+    <div id="saved-messages">
+      <h3>Saved Messages</h3>
+      <ul id="message-list"></ul>
+    </div>
+
+    <!-- Clear Storage Button -->
+    <button id="clear-storage">Clear Messages</button>
   </section>
+
+  <!-- Link the external JavaScript file -->
+  <script src="portfolio.js"></script>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 My Portfolio</p>
     <div>
-      <a href="https://github.com">GitHub</a>
-      <a href="https://linkedin.com">LinkedIn</a>
-      <!-- More social links -->
+      <a href="https://github.com" target="_blank" title="GitHub Profile">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" title="LinkedIn Profile">LinkedIn</a>
+      <!-- Add more social links as needed -->
     </div>
+
   </footer>
 
 </body>
