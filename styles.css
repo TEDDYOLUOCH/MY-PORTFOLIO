@@ -449,3 +449,93 @@ footer a:hover {
   color: var(--primary-color);
   text-shadow: 0 0 10px var(--primary-color);
 }
+/* Media Queries */
+
+/* For tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  header ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header ul li {
+    margin: 10px 0;
+  }
+
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+
+  #hero p {
+    font-size: 1.2rem;
+  }
+
+  #about img.profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  #skills ul {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .project-card {
+    width: 90%;
+    margin: var(--margin-small) auto;
+  }
+}
+
+/* For mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    padding-top: 40px; /* Adjust padding for smaller screens */
+  }
+
+  header ul li {
+    margin: 5px 0;
+  }
+
+  #hero {
+    padding: 80px var(--padding-small);
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  #skills ul {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    width: 100%;
+    margin: var(--margin-small) 0;
+  }
+
+  #contact form {
+    width: 90%;
+  }
+}
+
+/* For larger screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+  #hero h1 {
+    font-size: 5rem;
+  }
+
+  #hero p {
+    font-size: 2rem;
+  }
+
+  #skills ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .project-card {
+    width: calc(25% - 40px);
+  }
+}
