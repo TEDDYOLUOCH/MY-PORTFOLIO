@@ -1,17 +1,41 @@
-// Select the form and other DOM elements
+// Cache DOM elements for better performance
 const contactForm = document.querySelector('#contact-form');
 const messageList = document.querySelector('#message-list');
 const clearStorageBtn = document.querySelector('#clear-storage');
+const formFields = {
+  name: document.querySelector('#name'),
+  email: document.querySelector('#email'),
+  message: document.querySelector('#message'),
+};
 
-// Function to load and display messages from localStorage
-function loadMessages() {
-  const entries = JSON.parse(localStorage.getItem('contactMessages')) || [];
-  messageList.innerHTML = ''; // Clear the list first
+// Initialize EmailJS (Replace with your actual keys)
+emailjs.init('YOUR_PUBLIC_KEY');
+
+// Utility function to fetch and parse localStorage data
+function getStoredMessages() {
+  try {
+    return JSON.parse(localStorage.getItem('contactMessages')) || [];
+  } catch (error) {
+    console.error('Error parsing localStorage data:', error);
+    return [];
+  }
+}
+
+// Utility function to save messages to localStorage
+function saveMessage(message) {
+  const entries = getStoredMessages();
+  entries.push(message);
+  localStorage.setItem('contactMessages', JSON.stringify(entries));
+}
+
+// Function to display messages in the DOM
+function displayMessages() {
+  const entries = getStoredMessages();
+  messageList.innerHTML = '';
 
   if (entries.length === 0) {
-    messageList.innerHTML = '<li>No messages found.</li>'; // Display a message if no contact entries exist
+    messageList.innerHTML = '<li>No messages found.</li>';
   } else {
-    // Loop through each saved message and display it
     entries.forEach(entry => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `
@@ -24,41 +48,56 @@ function loadMessages() {
   }
 }
 
-// Event Listener for Form Submission
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent the default form submission behavior
+// Function to handle form submission
+async function handleFormSubmit(event) {
+  event.preventDefault();
 
-  // Get form values
-  const name = document.querySelector('#name').value;
-  const email = document.querySelector('#email').value;
-  const message = document.querySelector('#message').value;
+  // Extract and validate form data
+  const name = formFields.name.value.trim();
+  const email = formFields.email.value.trim();
+  const message = formFields.message.value.trim();
 
-  // Retrieve existing entries or initialize an empty array
-  const entries = JSON.parse(localStorage.getItem('contactMessages')) || [];
+  if (!name || !email || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
 
-  // Add the new message to the entries array
-  entries.push({
-    name,
-    email,
-    message,
-    timestamp: new Date().toLocaleString() // Add the current timestamp
-  });
+  // Prepare email data
+  const emailData = { name, email, message };
 
-  // Save the updated entries back to localStorage
-  localStorage.setItem('contactMessages', JSON.stringify(entries));
+  // Disable form submission button for feedback
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
 
-  // Clear the form and refresh the message list
-  contactForm.reset();
-  loadMessages(); // Reload saved messages
-  alert('Message saved locally!');
-});
+  try {
+    // Send email using EmailJS
+    await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailData);
+    alert('Your message has been sent!');
+    
+    // Save the message locally with a timestamp
+    saveMessage({ ...emailData, timestamp: new Date().toLocaleString() });
 
-// Event Listener for Clear Storage Button
-clearStorageBtn.addEventListener('click', () => {
-  // Remove messages from localStorage
+    // Refresh the message list
+    displayMessages();
+    contactForm.reset();
+  } catch (error) {
+    console.error('Error sending email:', error);
+    alert('Failed to send your message. Please try again.');
+  } finally {
+    // Re-enable form submission button
+    submitButton.disabled = false;
+  }
+}
+
+// Function to clear messages from localStorage
+function clearMessages() {
   localStorage.removeItem('contactMessages');
-  loadMessages(); // Refresh the message list
-});
+  displayMessages();
+}
 
-// Load saved messages on page load
-window.addEventListener('load', loadMessages);
+// Add event listeners
+contactForm.addEventListener('submit', handleFormSubmit);
+clearStorageBtn.addEventListener('click', clearMessages);
+
+// Load messages on page load
+window.addEventListener('load', displayMessages);

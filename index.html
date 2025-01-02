@@ -1,99 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A personal portfolio website showcasing my skills, projects, achievements, and more.">
+    <meta name="author" content="Teddy Oluoch">
+    <meta property="og:title" content="Teddy Oluoch | Portfolio">
+    <meta property="og:description" content="Discover my skills, achievements, and projects I have worked on in IT, Networking, Cybersecurity, and Fullstack Development.">
+    <meta property="og:image" content="path_to_image.jpg">
+    <meta property="og:url" content="your_website_url.com">
+    <meta name="twitter:title" content="Teddy Oluoch | Portfolio">
+    <meta name="twitter:description" content="Discover my skills, achievements, and projects I have worked on in IT, Networking, Cybersecurity, and Fullstack Development.">
+    <meta name="twitter:image" content="path_to_image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Teddy Oluoch | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <!-- Navigation Bar -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about" aria-label="About Section">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero" aria-label="Home">Home</a></li>
+                <li><a href="#about" aria-label="About Me">About</a></li>
+                <li><a href="#skills" aria-label="My Skills">Skills</a></li>
+                <li><a href="#projects" aria-label="My Projects">Projects</a></li>
+                <li><a href="#achievements" aria-label="My Achievements">Achievements</a></li>
+                <li><a href="#contact" aria-label="Contact Me">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hi, I'm Teddy Oluoch, a passionate web developer.</p>
-  </section>
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover my skills, achievements, and the projects I have worked on.</p>
+    </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <img src="WhatsApp Image 2024-11-07 at 19.49.49_38600ed6.jpg" alt="Your Profile Photo" class="profile-photo">
-    <h2>About Me</h2>
-    <p>My name is Teddy Oluoch, an IT field professor and engineer specializing in Networking, Cybersecurity, and Fullstack Development. I am passionate about exploring various fields within IT to ensure that I am always equipped to tackle computational problems.</p>
-  </section>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <figure>
+            <img src="../MY PORTFOLIO/WhatsApp Image 2024-11-07 at 19.49.49_38600ed6.jpg" alt="Teddy Oluoch profile photo" class="profile-photo">
+            <figcaption>Teddy Oluoch, IT field professor and engineer.</figcaption>
+        </figure>
+        <p>My name is Teddy Oluoch, an IT field professor and engineer specializing in Networking, Cybersecurity, and Fullstack Development. I am passionate about exploring various fields within IT to ensure that I am always equipped to tackle computational problems.</p>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <!-- Add more skills as needed -->
-    </ul>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Web Development</li>
+            <li>Graphic Design</li>
+            <li>Problem Solving</li>
+        </ul>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>A Shop System</h3>
-      <img src="../IMAGES/Screenshot 2024-10-18 175656.png" alt="Screenshot of A Shop System project" class="project-image">
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <img src="../IMAGES/Screenshot 2024-10-18 175656.png" alt="A Shop System project screenshot" class="project-image">
+            <a href="#" aria-label="View A Shop System project">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="../MY PORTFOLIO/Screenshot 2024-12-20 120821.png" alt="Another project screenshot" class="project-image">
+            <a href="#" aria-label="View another project">View Project</a>
+        </div>
+    </section>
 
-      <p>This project involves creating a system to manage goods and services, offering appointment booking and preparation management features.</p>
-      <a href="https://github.com" target="_blank" title="View on GitHub">View Project</a>
-    </div>
-  </section>
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2>Achievements</h2>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+        <!-- Achievement 1 -->
+        <article class="achievement-card">
+            <h3>C++ and Data Structure and Algorithm</h3>
+            <p>This award was given for excellence in problem-solving and programming.</p>
+            <a href="C:\Users\ADMIN\Desktop\MY PORTFOLIO\Z1xDgnN.pdf" target="_blank" class="certificate-link" aria-label="View C++ Certificate">
+                <p>View Certificate (PDF)</p>
+            </a>
+        </article>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+        <!-- Achievement 2 -->
+        <article class="achievement-card">
+            <h3>Introduction to Data Visualization using Python and Seaborn BootCamp</h3>
+            <p>This certification recognized my expertise in data analysis using Python and Seaborn.</p>
+            <a href="C:\Users\ADMIN\Desktop\MY PORTFOLIO\Z1T5f72.pdf" target="_blank" class="certificate-link" aria-label="View Data Visualization Certificate">
+                <p>View Certificate (PDF)</p>
+            </a>
+        </article>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
+        <!-- Achievement 3 -->
+        <article class="achievement-card">
+            <h3>Javascript and React.js</h3>
+            <p>I attended a BootCamp training and acquired knowledge in JavaScript and React.js, which enhances my problem-solving capabilities.</p>
+            <a href="C:\Users\ADMIN\Desktop\MY PORTFOLIO\Z2tiLpo.pdf" target="_blank" class="certificate-link" aria-label="View JavaScript and React Certificate">
+                <p>View Certificate (PDF)</p>
+            </a>
+        </article>
+    </section>
 
-      <button type="submit" class="send">Send</button>
-    </form>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <!-- Contact Form -->
+        <form id="contact-form" action="https://formspree.io/f/xwpkgwyd" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-    <!-- Display Saved Messages -->
-    <div id="saved-messages">
-      <h3>Saved Messages</h3>
-      <ul id="message-list"></ul>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Teddy Oluoch. All rights reserved.</p>
+    </footer>
 
-    <!-- Clear Storage Button -->
-    <button id="clear-storage">Clear Messages</button>
-  </section>
-
-  <!-- Link the external JavaScript file -->
-  <script src="portfolio.js"></script>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 My Portfolio</p>
-    <div>
-      <a href="https://github.com" target="_blank" title="GitHub Profile">GitHub</a>
-      <a href="https://linkedin.com" target="_blank" title="LinkedIn Profile">LinkedIn</a>
-      <!-- Add more social links as needed -->
-    </div>
-
-  </footer>
-
+    <!-- Optional JavaScript -->
+    <script src="scripts.js"></script> <!-- Link to an external JS file if necessary -->
 </body>
+
 </html>
