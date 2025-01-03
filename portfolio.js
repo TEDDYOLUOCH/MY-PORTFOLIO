@@ -101,3 +101,11 @@ clearStorageBtn.addEventListener('click', clearMessages);
 
 // Load messages on page load
 window.addEventListener('load', displayMessages);
+
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('visible');
+    navMenu.classList.toggle('hidden');
+});
