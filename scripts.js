@@ -68,3 +68,13 @@ menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('hidden');
   menuToggle.querySelector('.menu-icon').classList.toggle('active');
 });
+
+// Select the hamburger menu and nav links
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navLinks = document.getElementById('nav-links');
+
+// Toggle the active class to show/hide the nav links
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+

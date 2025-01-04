@@ -87,6 +87,53 @@ a:hover {
     transition: transform var(--transition-speed), background-color var(--transition-speed);
 }
 
+/* Style the hamburger menu */
+.hamburger-menu {
+  display: none; /* Hide the hamburger by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Show hamburger menu on smaller screens */
+@media (max-width: 768px) {
+  .hamburger-menu {
+      display: flex;
+  }
+
+  #nav-links {
+      display: none; /* Hide navigation links by default on small screens */
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
+
+  #nav-links.active {
+      display: flex; /* Show the navigation links when the menu is active */
+  }
+
+  #nav-links li {
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+  }
+
+  #nav-links li a {
+      display: block;
+      padding: 15px;
+      width: 100%;
+  }
+}
+
 /* Hero Section */
 #hero {
   background: linear-gradient(120deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
