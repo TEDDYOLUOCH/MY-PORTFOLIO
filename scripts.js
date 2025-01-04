@@ -78,3 +78,10 @@ hamburgerMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
+document.getElementById('hamburger-menu').addEventListener('click', function () {
+  var navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('active'); // Toggle the active class on nav-links
+  
+  // Also toggle the active state for the hamburger icon to change the appearance
+  this.classList.toggle('active');
+});

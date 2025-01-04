@@ -87,7 +87,7 @@ a:hover {
     transition: transform var(--transition-speed), background-color var(--transition-speed);
 }
 
-/* Style the hamburger menu */
+/* Hamburger Icon and Menu Toggle */
 .hamburger-menu {
   display: none; /* Hide the hamburger by default */
   flex-direction: column;
@@ -95,6 +95,7 @@ a:hover {
   width: 30px;
   height: 20px;
   cursor: pointer;
+  z-index: 10; /* Ensure it's clickable on top of the menu */
 }
 
 .hamburger-icon {
@@ -102,37 +103,52 @@ a:hover {
   height: 4px;
   background-color: var(--primary-color);
   border-radius: 4px;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Active state for hamburger icon */
+.hamburger-menu.active .hamburger-icon:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Top bar rotates */
+}
+
+.hamburger-menu.active .hamburger-icon:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger-menu.active .hamburger-icon:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px); /* Bottom bar rotates */
 }
 
 /* Show hamburger menu on smaller screens */
 @media (max-width: 768px) {
   .hamburger-menu {
-      display: flex;
+    display: flex;
   }
 
   #nav-links {
-      display: none; /* Hide navigation links by default on small screens */
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+    display: none; /* Hide navigation links by default */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   #nav-links.active {
-      display: flex; /* Show the navigation links when the menu is active */
+    display: flex; /* Show the navigation links when active */
   }
 
   #nav-links li {
-      padding: 10px;
-      width: 100%;
-      text-align: center;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
   }
 
   #nav-links li a {
-      display: block;
-      padding: 15px;
-      width: 100%;
+    display: block;
+    padding: 15px;
+    width: 100%;
   }
 }
+
 
 /* Hero Section */
 #hero {
